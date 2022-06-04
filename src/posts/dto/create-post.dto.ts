@@ -3,4 +3,5 @@ export class CreatePostDto {
   user_email: string;
   content: string;
   likes: number;
+  isPublic?: boolean;
 }

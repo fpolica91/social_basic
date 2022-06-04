@@ -4,7 +4,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from 'src/users/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserModel } from './models/User';
+// import { UserModel } from './models/User';
 
 @Injectable()
 export class UsersService {
@@ -14,7 +14,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    if (this.findByEmail(createUserDto.email)) {
+    if (await this.findByEmail(createUserDto.email)) {
       throw new Error('Email already exists');
     }
 

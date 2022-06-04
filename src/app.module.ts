@@ -1,10 +1,9 @@
-import { Module } from '@nestjs/common';
+import { Module, CacheModule } from '@nestjs/common';
 import { Connection } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import connectionOptions from '../ormconfig';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
@@ -14,6 +13,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Module({
   imports: [
+    CacheModule.register({ isGlobal: true }),
     MongooseModule.forRoot('mongodb://localhost:27017/posts', {
       useNewUrlParser: true,
       dbName: 'posts',

@@ -25,6 +25,9 @@ export class Post {
   @Prop()
   likes: number;
 
+  @Prop({ default: true })
+  isPublic?: boolean;
+
   // @Prop()
   // createdAt: Date;
 }
