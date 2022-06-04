@@ -20,6 +20,7 @@ export class PostsService {
   }
 
   async findPublic() {
+    // sorts by most likes
     const posts = await this.postModel
       .find({ isPublic: true })
       .sort('likes')
