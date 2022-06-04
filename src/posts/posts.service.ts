@@ -18,7 +18,7 @@ export class PostsService {
     const createdPost = new this.postModel(createPostDto);
     return createdPost.save();
   }
-
+  //
   async findPublic() {
     const posts = await this.postModel
       .find({ isPublic: true })
