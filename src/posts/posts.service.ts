@@ -27,8 +27,9 @@ export class PostsService {
     return posts;
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} post`;
+  async findOne(id: string) {
+    const post = await this.postModel.findById(id);
+    return post;
   }
 
   async dislikePost(id: string, updatePostDto: UpdatePostDto) {
